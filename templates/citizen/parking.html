@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charging Stations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='userStyles.css') }}">
+
+</head>
+<body>
+    <h1>Charging Stations</h1>
+    <form action="/get_machines" method="post">
+        <label for="charging_station">Select Charging Station:</label>
+        <select name="charging_station" id="charging_station">
+            {% for station in charging_stations %}
+                <option value="{{ station.station_name }}">{{ station.station_name }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Get Machines">
+    </form>
+    <div class="foot-container">
+        <a href="/user_menu" class="action-button">
+            <span class="action-icon">←</span> Back
+          </a>
+    </div>
+</body>
+</html>

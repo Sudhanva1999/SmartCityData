@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wind Speed Sensors</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='userStyles.css') }}">
+
+</head>
+<body>
+    <main>
+      <h1>Speed Sensors</h1>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Sensor Name</th>
+              <th>Wind Speed Clocked At</th>
+              <th>Time Logged At</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for sensor in speed_sensors %}
+              <tr>
+                <td>{{ sensor.sensor_name }}</td>
+                <td>{{ sensor.speed_data }}</td>
+                <td>{{ sensor.timestamp }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </main>
+    <div class="foot-container">
+        <a href="/sensor_data_menu" class="action-button">
+            <span class="action-icon">←</span> Back
+          </a>
+    </div>
+  </body>
+
+</html>

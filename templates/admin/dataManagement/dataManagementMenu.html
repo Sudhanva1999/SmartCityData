@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sensor Menu</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='menuStyle.css') }}">
+
+</head>
+<body>
+  <main>
+    <h1>Data Management Menu</h1>
+    <div class="menu-container">
+      <div class="menu-item">
+        <a href="/manage_signals" class="menu-button">Manage Signals</a>
+        <p class="menu-description">Create, update or delete traffic signal data.</p>
+      </div>
+      <div class="menu-item">
+        <a href="/manage_users" class="menu-button">Manage Users</a>
+        <p class="menu-description">Create, update or delete users.</p>
+      </div>
+
+      <div class="menu-item">
+        <a href="/manage_cameras" class="menu-button">Manage Cameras</a>
+        <p class="menu-description">Create, update or delete survilance cameras.</p>
+      </div>
+      <div class="menu-item">
+        <a href="/manage_wifi_zones" class="menu-button">Manage Wifi Zones</a>
+        <p class="menu-description">Create, update or delete wifi zones.</p>
+      </div>
+    </div>
+    <div class="foot-container">
+        <a href="/admin_menu" class="action-button">
+            <span class="action-icon">←</span> Back
+          </a>
+    </div>
+    
+  </main>
+</body>
+</html>

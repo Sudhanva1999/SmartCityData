@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Signals</title>
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/media-podcast.css' rel='stylesheet'>
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/smartphone-shake.css' rel='stylesheet'>
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/arrow-align-h.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='userStyles.css') }}">
+
+</head>
+<body>
+    <h1>Smart Signals</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Serial Number</th>
+                <th>Installation Data</th>
+                <th>Connectivity Type</th>
+                <th>Start Time</th>
+                <th>Stop Time</th>
+                <th>City Name</th>
+                <th>Currently Active ?</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for signal in smart_signals %}
+                <tr class="{{ 'active' if signal.currently_active == 'active' else 'inactive' }}">
+                    <td>{{ signal.serial_number }}</td>
+                    <td>{{ signal.installation_date }}</td>
+                    <td>
+                        {% if signal.connectivity_type == 'wifi' %}
+                        WIFI  <i class="gg-media-podcast"></i>
+                        {% elif signal.connectivity_type == 'bluetooth' %}
+                        BLUETOOTH <i class="gg-smartphone-shake"></i>
+                        {% else %}
+                        WIRED  <i class="gg-arrow-align-h"></i>
+                        {% endif %}
+                    </td>
+                    <td>{{ signal.schedule_start_time }}</td>
+                    <td>{{ signal.schedule_end_time }}</td>
+                    <td>{{ signal.city_name }}</td>
+                    <td>{{ signal.currently_active }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="foot-container">
+        <a href="/user_menu" class="action-button">
+            <span class="action-icon">←</span> Back
+          </a>
+    </div>
+</body>
+</html>

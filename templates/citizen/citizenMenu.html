@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Page Title</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='menuStyle.css') }}">
+</head>
+<body>
+  <main>
+    <h1>Hello User!</h1>
+    <div class="menu-container">
+      <div class="menu-item">
+        <a href="/sensor_menu" class="menu-button">Sensor Menu</a>
+        <p class="menu-description">View alerts and different sensor data accessible to you.</p>
+      </div>
+
+      <div class="menu-item">
+        <a href="/parking" class="menu-button">Parking Spaces</a>
+        <p class="menu-description">View parking spaces available in your area.</p>
+      </div>
+
+      <div class="menu-item">
+        <a href="/signals" class="menu-button">Show Signals</a>
+        <p class="menu-description">View signal locations in your area.</p>
+      </div>
+
+      <div class="menu-item">
+        <a href="/wifi_zones" class="menu-button">Nearby Wifi Zones</a>
+        <p class="menu-description">View active wifi zones near your area.</p>
+      </div>
+    </div>
+    <div class="foot-container">
+          <a href="/logout" class="action-button">
+            <span class="action-icon">🔒</span> Logout
+          </a>
+    </div>
+  </main>
+</body>
+</html>

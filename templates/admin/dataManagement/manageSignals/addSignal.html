@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Signal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+    <div class="container">
+        <h1>Add Signal</h1>
+        <form method="post">
+            <label for="serial_number">Serial Number:</label>
+            <input type="text" name="serial_number" required>
+
+            <label for="installation_date">Installation Date:</label>
+            <input type="date" name="installation_date" required>
+
+            <label for="connectivity_type">Connectivity Type:</label>
+            <select name="connectivity_type">
+                <option value="bluetooth" >Bluetooth</option>
+                <option value="wifi">Wifi</option>
+                <option value="wired">Wired</option>
+            </select>
+
+            <label for="schedule_start_time">Schedule Start Time:</label>
+            <input min = "10:00:00"  type="time" name="schedule_start_time" required>
+
+            <label for="schedule_end_time">Schedule End Time:</label>
+            <input min = "10:00:00"  type="time" name="schedule_end_time" required>
+
+            <label for="city_name">City:</label>
+            <select name="city_name">
+                {% for city in cities %}
+                    <option value="{{ city }}" >{{ city }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Add</button>
+            <div class="foot-container">
+                <a href="/manage_signals" class="action-button">
+                    <span class="action-icon">←</span> Back
+                </a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

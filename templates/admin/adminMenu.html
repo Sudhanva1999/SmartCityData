@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Page</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='menuStyle.css') }}">
+</head>
+<body>
+  <main>
+    <h1>Hello Admin!</h1>
+    <div class="menu-container">
+      <a href="/data_management_menu" class="menu-button">Data Management</a>
+      <a href="#" class="menu-button">Generate Reports</a>
+    </div>
+
+    <div class="foot-container">
+          <a href="/logout" class="action-button">
+            <span class="action-icon">🔒</span> Logout
+          </a>
+    </div>
+  </main>
+</body>
+</html>

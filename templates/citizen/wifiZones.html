@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WiFi Zones</title>
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/lock-unlock.css' rel='stylesheet'>
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/lock.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='userStyles.css') }}">
+
+</head>
+<body>
+    <h1>WiFi Zones</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Zone Name</th>
+                <th>Coverage Area</th>
+                <th>WiFi Status</th>
+                <th>City Name</th>
+                <th> Zone Security</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for zone in wifi_zones %}
+                <tr class="{{ 'active' if zone.wifi_status == 'active' else 'inactive' }}">
+                    <td>{{ zone.zone_name }}</td>
+                    <td>{{ zone.coverage_area }}</td>
+                    <td>{{ zone.wifi_status }}</td>
+                    <td>{{ zone.city_name }}</td>
+                    <td>
+                        {% if zone.zone_security == 'private' %}
+                            <i class="gg-lock"></i>
+                        {% else %}
+                            <i class="gg-lock-unlock"></i>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="foot-container">
+        <a href="/user_menu" class="action-button">
+            <span class="action-icon">←</span> Back
+          </a>
+    </div>
+</body>
+</html>

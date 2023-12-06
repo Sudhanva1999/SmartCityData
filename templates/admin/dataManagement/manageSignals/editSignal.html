@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Signal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Signal</h1>
+        <form method="post">
+            <label for="serial_number">Serial Number:</label>
+            <input type="text" name="serial_number" value="{{ signal.serial_number }}" required readonly>
+
+            <label for="installation_date">Installation Date:</label>
+            <input type="date" name="installation_date" value="{{ signal.installation_date }}" required>
+
+            <label for="connectivity_type">Connectivity Type:</label>
+            <select name="connectivity_type">
+                <option value="bluetooth" {% if signal.connectivity_type == 'bluetooth' %}selected{% endif %} >Bluetooth</option>
+                <option value="wifi" {% if signal.connectivity_type == 'wifi' %}selected{% endif %}>Wifi</option>
+                <option value="wired" {% if signal.connectivity_type == 'wired' %}selected{% endif %}>Wired</option>
+            </select>
+
+            <label for="schedule_start_time">Schedule Start Time:</label>
+            <input min = "10:00:00" type="time" name="schedule_start_time" value="{{ signal.schedule_start_time }}" required>
+
+            <label for="schedule_end_time">Schedule End Time:</label>
+            <input min = "10:00:00"  type="time" name="schedule_end_time" value="{{ signal.schedule_end_time }}" required>
+
+            <label for="city_name">City:</label>
+            <select name="city_name">
+                {% for city in cities %}
+                    <option value="{{ city }}" {% if city == signal.city_name %}selected{% endif %}>{{ city }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Update</button>
+        </form>
+        <div class="foot-container">
+            <a href="/manage_signals" class="action-button">
+                <span class="action-icon">←</span> Back
+            </a>
+        </div>
+    </div>
+   
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementsByName('schedule_start_time')[0].value = "{{ signal.schedule_start_time }}";
+      document.getElementsByName('schedule_end_time')[0].value = "{{ signal.schedule_end_time }}";
+    });
+  </script>
+</html>

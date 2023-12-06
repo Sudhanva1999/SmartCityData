@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citizen Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Citizen Management</h1>
+        <table>
+            <tr>
+                <th>Email</th>
+                <th>Username</th>
+                <th>User Type</th>
+                <th>User Status</th>
+                <th>Actions</th>
+            </tr>
+            {% for citizen in citizens %}
+                <tr>
+                    <td>{{ citizen.email }}</td>
+                    <td>{{ citizen.username }}</td>
+                    <td>{{ citizen.user_type }}</td>
+                    <td>{{ citizen.user_status }}</td>
+                    <td>
+                        <a href="{{ url_for('edit', email=citizen.email) }}">Edit</a>
+                        <a href="{{ url_for('delete', email=citizen.email) }}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="foot-container">
+        
+    </div>
+    <div class="foot-container">
+        <a href="/data_management_menu" class="action-button">
+            <span class="action-icon">←</span> Back
+          </a>
+          <a href="/addUser" class="action-button">
+            ADD USER
+         </a>
+    </div>
+</body>
+</html>

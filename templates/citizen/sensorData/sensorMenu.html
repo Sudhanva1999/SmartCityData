@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sensor Menu</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='menuStyle.css') }}">
+</head>
+<body>
+  <main>
+    <h1>Sensor Menu</h1>
+    <div class="menu-container">
+      <div class="menu-item">
+        <a href="/sensor_data_menu" class="menu-button">Show Sensor Data</a>
+        <p class="menu-description">Show sensor data of different types like temperature, humidity, etc.</p>
+      </div>
+
+      <div class="menu-item">
+        <a href="/sensor_alerts" class="menu-button">Show Sensor Alerts</a>
+        <p class="menu-description">Show sensor alerts that went off in your area.</p>
+      </div>
+    </div>
+    <div class="foot-container">
+        <a href="user_menu" class="action-button">
+            <span class="action-icon">←</span> Back
+          </a>
+    </div>
+  </main>
+</body>
+</html>

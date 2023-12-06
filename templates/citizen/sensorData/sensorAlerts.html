@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sensor Alerts</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='userStyles.css') }}">
+
+</head>
+<body>
+    <main>
+      <h1>Sensor Alerts</h1>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Alert Type</th>
+              <th>Alert Message</th>
+              <th>Timestamp</th>
+              <th>Alert Status</th>
+              <th>Sensor Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for alert in sensor_alerts %}
+              <tr>
+                <td>{{ alert.alert_type }}</td>
+                <td>{{ alert.alert_message }}</td>
+                <td>{{ alert.timestamp }}</td>
+                <td>{{ alert.alert_status }}</td>
+                <td>{{ alert.sensor_name }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </main>
+    <div class="foot-container">
+        <a href="/sensor_menu" class="action-button">
+            <span class="action-icon">←</span> Back
+          </a>
+    </div>
+  </body>
+
+</html>

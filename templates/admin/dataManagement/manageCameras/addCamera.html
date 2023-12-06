@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Camera</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Add Camera</h1>
+        <form method="post">
+            <label for="serial_number">Serial Number:</label>
+            <input type="text" name="serial_number"  required>
+
+            <label for="camera_type">Camera Type</label>
+            <input type="text" name="camera_type" required>
+
+            <label for="installation_date">Installation Date:</label>
+            <input type="date" name="installation_date"  required>
+
+            <label for="camera_status">Camera Status:</label>
+            <select name="camera_status">
+                <option value="active" >Active</option>
+                <option value="inactive">Inactive</option>
+            </select>
+
+            <label for="camera_resolution">Camera Resolution:</label>
+            <input type="text" name="camera_resolution" required>
+
+
+            <label for="field_of_view_angle">Field of View Angle:</label>
+            <input type="text" name="field_of_view_angle" required>
+
+            <label for="connectivity_type">Connectivity Type:</label>
+            <select name="connectivity_type">
+                <option value="bluetooth" >Bluetooth</option>
+                <option value="wifi">Wifi</option>
+                <option value="wired">Wired</option>
+            </select>
+
+            <label for="power_source">Power Source:</label>
+            <select name="power_source">
+                <option value="wired" >Wired</option>
+                <option value="battery">Battery</option>
+            </select>
+
+            <label for="city_name">City:</label>
+            <select name="city_name">
+                {% for city in cities %}
+                    <option value="{{ city }}" >{{ city }}</option>
+                {% endfor %}
+            </select>
+            
+            <button type="submit">Add</button>
+
+
+        </form>
+        <div class="foot-container">
+            <a href="/manage_cameras" class="action-button">
+                <span class="action-icon">←</span> Back
+            </a>
+        </div>
+    </div>
+</body>
+</html>

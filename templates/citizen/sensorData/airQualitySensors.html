@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Air Quality Sensors</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='userStyles.css') }}">
+
+</head>
+<body>
+    <main>
+      <h1>Air Quality Sensors</h1>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Sensor Name</th>
+              <th>Air Quality Index</th>
+              <th>Time Logged At</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for sensor in air_quality_sensors %}
+              <tr>
+                <td>{{ sensor.sensor_name }}</td>
+                <td>{{ sensor.air_quality_data }}</td>
+                <td>{{ sensor.timestamp }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </main>
+    <div class="foot-container">
+        <a href="/sensor_data_menu" class="action-button">
+            <span class="action-icon">←</span> Back
+          </a>
+    </div>
+  </body>
+
+</html>

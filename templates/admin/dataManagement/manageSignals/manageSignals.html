@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Signal Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Smart Signal Management</h1>
+        <table>
+            <tr>
+                <th>Serial Number</th>
+                <th>Installation Date</th>
+                <th>Connectivity Type</th>
+                <th>Schedule Start Time</th>
+                <th>Schedule End Time</th>
+                <th>City</th>
+                <th>Action</th>
+            </tr>
+            {% for signal in signals %}
+                <tr>
+                    <td>{{ signal.serial_number }}</td>
+                    <td>{{ signal.installation_date }}</td>
+                    <td>{{ signal.connectivity_type }}</td>
+                    <td>{{ signal.schedule_start_time }}</td>
+                    <td>{{ signal.schedule_end_time }}</td>
+                    <td>{{ signal.city_name }}</td>
+                    <td>
+                        <a href="{{ url_for('editSignal', serial_number=signal.serial_number) }}">Edit</a>
+                        <a href="{{ url_for('deleteSignal', serial_number=signal.serial_number) }}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="foot-container">
+        <a href="/data_management_menu" class="action-button">
+            <span class="action-icon">←</span> Back
+        </a>
+        <a href="/addSignal" class="action-button">
+            ADD SIGNAL
+        </a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sensor Menu</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='menuStyle.css') }}">
+</head>
+<body>
+  <main>
+    <h1>Sensor Menu</h1>
+    <div class="menu-container">
+      <div class="menu-item">
+        <a href="/light_sensors" class="menu-button">Show Light Sensors</a>
+        <p class="menu-description">Show light sensors to determine light pollution.</p>
+      </div>
+
+      <div class="menu-item">
+        <a href="/humidity_sensors" class="menu-button">Show Humidity Sensors</a>
+        <p class="menu-description">Show humidity sensors data to determine humidity in your area.</p>
+      </div>
+
+      <div class="menu-item">
+        <a href="/temp_sensors" class="menu-button">Show Temperature Sensors</a>
+        <p class="menu-description">Show temperature readings across the city.</p>
+      </div>
+
+      <div class="menu-item">
+        <a href="/air_quality_sensors" class="menu-button">Show Air Quality Sensors</a>
+        <p class="menu-description">Show air quality index in your area.</p>
+      </div>
+
+      <div class="menu-item">
+        <a href="/speed_sensors" class="menu-button">Show Wind Speed Sensors</a>
+        <p class="menu-description">Show wind speeds in your area.</p>
+      </div>
+    </div>
+    <div class="foot-container">
+        <a href="/sensor_menu" class="action-button">
+            <span class="action-icon">←</span> Back
+          </a>
+    </div>
+    
+  </main>
+</body>
+</html>

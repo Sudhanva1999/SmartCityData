@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WiFi Zones Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>WiFi Zones Management</h1>
+        <table>
+            <tr>
+                <th>Zone ID</th>
+                <th>Zone Name</th>
+                <th>Coverage Area</th>
+                <th>WiFi Status</th>
+                <th>Zone Security</th>
+                <th>City</th>
+                <th>Action</th>
+            </tr>
+            {% for zone in wifi_zones %}
+                <tr>
+                    <td>{{ zone.zone_id }}</td>
+                    <td>{{ zone.zone_name }}</td>
+                    <td>{{ zone.coverage_area }}</td>
+                    <td>{{ zone.wifi_status }}</td>
+                    <td>{{ zone.zone_security }}</td>
+                    <td>{{ zone.city_name }}</td>
+                    <td>
+                        <a href="{{ url_for('editWifi', zone_id=zone.zone_id) }}">Edit</a>
+                        <a href="{{ url_for('deleteWiFiZone', zone_id=zone.zone_id) }}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="foot-container">
+        <a href="/data_management_menu" class="action-button">
+            <span class="action-icon">←</span> Back
+        </a>
+        <a href="/addZone" class="action-button">
+            ADD ZONE
+        </a>
+    </div>
+</body>
+</html>

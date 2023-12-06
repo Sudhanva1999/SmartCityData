@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit WiFi Zone</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">   
+</head>
+<body>
+    <div class="container">
+        <h1>Edit WiFi Zone</h1>
+        <form method="post">
+            <label for="zone_name">Zone Name:</label>
+            <input type="text" name="zone_name" value="{{ zone.zone_name }}" required>
+
+            <label for="coverage_area">Coverage Area:</label>
+            <input type="number" name="coverage_area" value="{{ zone.coverage_area }}" required>
+
+            <label for="wifi_status">WiFi Status:</label>
+            <select name="wifi_status">
+                <option value="active" {% if zone.wifi_status == 'active' %}selected{% endif %}>Active</option>
+                <option value="inactive" {% if zone.wifi_status == 'inactive' %}selected{% endif %}>Inactive</option>
+            </select>
+
+            <label for="zone_security">Zone Security:</label>
+            <select name="zone_security">
+                <option value="public" {% if zone.zone_security == 'public' %}selected{% endif %}>Public</option>
+                <option value="private" {% if zone.zone_security == 'private' %}selected{% endif %}>Private</option>
+            </select>
+
+            <label for="city_name">City:</label>
+            <select name="city_name">
+                {% for city in cities %}
+                <option value="{{ city }}" {% if city == zone.city_name %}selected{% endif %}>{{ city }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Update</button>
+    </form>
+    <div class="foot-container">
+        <a href="/manage_wifi_zones" class="action-button">
+            <span class="action-icon">←</span> Back
+        </a>
+    </div>
+</div>
+</body>
+</html>

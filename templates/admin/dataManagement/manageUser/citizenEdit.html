@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Citizen</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Citizen</h1>
+        <form method="post">
+            <label for="username">Username:</label>
+            <input type="text" name="username" value="{{ citizen.username }}" required>
+
+            <label for="password">Password:</label>
+            <input type="password" name="password" value="{{ citizen.password }}" required>
+
+            <label for="email">Email:</label>
+            <input type="text" name="email" value="{{ citizen.email }}" required readonly>
+
+            <label for="first_name">First Name:</label>
+            <input type="text" name="first_name" value="{{ citizen.first_name }}" required>
+
+            <label for="last_name">Last Name:</label>
+            <input type="text" name="last_name" value="{{ citizen.last_name }}" required>
+
+            <label for="phone_no">Phone Number:</label>
+            <input type="text" name="phone_no" value="{{ citizen.phone_no }}" required>
+
+            <label for="user_type">User Type:</label>
+            <select name="user_type">
+                <option value="admin" {% if citizen.user_type == 'admin' %}selected{% endif %}>Admin</option>
+                <option value="citizen" {% if citizen.user_type == 'citizen' %}selected{% endif %}>Citizen</option>
+            </select>
+
+            <label for="user_status">User Status:</label>
+            <select name="user_status">
+                <option value="active" {% if citizen.user_status == 'active' %}selected{% endif %}>Active</option>
+                <option value="inactive" {% if citizen.user_status == 'inactive' %}selected{% endif %}>Inactive</option>
+            </select>
+
+            <label for="age">Age:</label>
+            <input type="number" name="age" value="{{ citizen.age }}" required>
+
+            <label for="city_name">City:</label>
+            <select name="city_name">
+                {% for city in cities %}
+                    <option value="{{ city }}" {% if city == citizen.city_name %}selected{% endif %}>{{ city }}</option>
+                {% endfor %}
+            </select>
+
+            <button type="submit">Update</button>
+        </form>
+        <div class="foot-container">
+            <a href="/manage_users" class="action-button">
+                <span class="action-icon">←</span> Back
+            </a>
+        </div>
+    </div>
+</body>
+</html>

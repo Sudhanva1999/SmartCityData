@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charging Station Machines</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='userStyles.css') }}">
+
+</head>
+<body>
+    <h1>Charging Station Machines</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Machine Number</th>
+                <th>Machine Status</th>
+                <th>Power Capacity</th>
+                <th>Installation Date</th>
+                <th>Charging Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for machine in machines %}
+                <tr class="{{ 'active' if machine.charging_status == 'active' else 'inactive' }}">
+                    <td>{{ machine.machine_number }}</td>
+                    <td>{{ machine.machine_status }}</td>
+                    <td>{{ machine.power_capacity }}</td>
+                    <td>{{ machine.installation_date }}</td>
+                    <td>{{ machine.charging_status }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="foot-container">
+        <a href="/parking" class="action-button">
+            <span class="action-icon">←</span> Back
+          </a>
+    </div>
+</body>
+</html>

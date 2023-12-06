@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survilance Camera Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Survilance Camera Management</h1>
+        <table>
+            <tr>
+                <th>Serial Number</th>
+                <th>Camera Type</th>
+                <th>Installation Data</th>
+                <th>Camera Status</th>
+                <th>Camera Resolution</th>
+                <th>Field of view angle</th>
+                <th>Connectivity Type</th>
+                <th>Power Source</th>
+                <th>City</th>
+                <th>Action</th>
+            </tr>
+            {% for camera in cameras %}
+                <tr>
+                    <td>{{ camera.serial_number }}</td>
+                    <td>{{ camera.camera_type }}</td>
+                    <td>{{ camera.installation_date }}</td>
+                    <td>{{ camera.camera_status }}</td>
+                    <td>{{ camera.camera_resolution }}</td>
+                    <td>{{ camera.field_of_view_angle }}</td>
+                    <td>{{ camera.connectivity_type }}</td>
+                    <td>{{ camera.power_source }}</td>
+                    <td>{{ camera.city_name }}</td>
+                    <td>
+                        <a href="{{ url_for('editCamera', serial_number = camera.serial_number) }}">Edit</a>
+                        <a href="{{ url_for('deleteCamera', serial_number = camera.serial_number) }}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="foot-container">
+        
+    </div>
+    <div class="foot-container">
+        <a href="/data_management_menu" class="action-button">
+            <span class="action-icon">←</span> Back
+          </a>
+          <a href="/addCamera" class="action-button">
+            ADD CAMERA
+         </a>
+    </div>
+</body>
+</html>
