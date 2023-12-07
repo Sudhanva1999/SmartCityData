@@ -28,8 +28,8 @@
                     <td>{{ signal.schedule_end_time }}</td>
                     <td>{{ signal.city_name }}</td>
                     <td>
-                        <a href="{{ url_for('editSignal', serial_number=signal.serial_number) }}">Edit</a>
-                        <a href="{{ url_for('deleteSignal', serial_number=signal.serial_number) }}">Delete</a>
+                        <a href="{{ url_for('admin_routes.editSignal', serial_number=signal.serial_number) }}">Edit</a>
+                        <a href="{{ url_for('admin_routes.deleteSignal', serial_number=signal.serial_number) }}">Delete</a>
                     </td>
                 </tr>
             {% endfor %}

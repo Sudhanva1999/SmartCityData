@@ -24,8 +24,8 @@
                     <td>{{ citizen.user_type }}</td>
                     <td>{{ citizen.user_status }}</td>
                     <td>
-                        <a href="{{ url_for('edit', email=citizen.email) }}">Edit</a>
-                        <a href="{{ url_for('delete', email=citizen.email) }}">Delete</a>
+                        <a href="{{ url_for('admin_routes.edit', email=citizen.email) }}">Edit</a>
+                        <a href="{{ url_for('admin_routes.delete', email=citizen.email) }}">Delete</a>
                     </td>
                 </tr>
             {% endfor %}

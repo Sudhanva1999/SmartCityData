@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensor Data Visualizations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='reportStyle.css') }}">
+
+    <style>
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .chart-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .selectorContainer {
+            margin-top: 40px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="chart-container">
+        <!-- Temperature Sensor Chart -->
+        <h3>Temperature Sensor Data</h3>
+        <img src="data:image/png;base64,{{ temperature_chart }}" alt="Temperature Sensor Chart">
+    </div>
+
+    <div class="chart-container">
+        <!-- Humidity Sensor Chart -->
+        <h3>Humidity Sensor Data</h3>
+        <img src="data:image/png;base64,{{ humidity_chart }}" alt="Humidity Sensor Chart">
+    </div>
+
+    <div class="chart-container">
+        <!-- Light Sensor Chart -->
+        <h3>Light Sensor Data</h3>
+        <img src="data:image/png;base64,{{ light_chart }}" alt="Light Sensor Chart">
+    </div>
+
+    <div class="chart-container">
+        <!-- Air Quality Sensor Chart -->
+        <h3>Air Quality Sensor Data</h3>
+        <img src="data:image/png;base64,{{ air_quality_chart }}" alt="Air Quality Sensor Chart">
+    </div>
+
+    <div class="chart-container">
+        <!-- Speed Sensor Chart -->
+        <h3>Speed Sensor Data</h3>
+        <img src="data:image/png;base64,{{ speed_chart }}" alt="Speed Sensor Chart">
+    </div>
+    
+</body>
+<div class="foot-container">
+    <a href="/sensor_data_vis" class="action-button">
+        <span class="action-icon">←</span> Back
+    </a>
+</div>
+</html>

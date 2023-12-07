@@ -28,8 +28,8 @@
                     <td>{{ zone.zone_security }}</td>
                     <td>{{ zone.city_name }}</td>
                     <td>
-                        <a href="{{ url_for('editWifi', zone_id=zone.zone_id) }}">Edit</a>
-                        <a href="{{ url_for('deleteWiFiZone', zone_id=zone.zone_id) }}">Delete</a>
+                        <a href="{{ url_for('admin_routes.editWifi', zone_id=zone.zone_id) }}">Edit</a>
+                        <a href="{{ url_for('admin_routes.deleteWiFiZone', zone_id=zone.zone_id) }}">Delete</a>
                     </td>
                 </tr>
             {% endfor %}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensor Data Visualizations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='reportStyle.css') }}">
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .selectorContainer {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        select {
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .foot-container {
+            margin-top: 20px;
+        }
+
+        .action-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #008CBA;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .action-button:hover {
+            background-color: #005580;
+        }
+    </style>
+</head>
+<body>
+    <form action="/get_all_sensors" method="post" class="selectorContainer">
+        <label for="city_select">Select City:</label>
+        <select name="city_select" id="city_select">
+            {% for city in cities %}
+                <option value="{{ city }}">{{ city }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Get Report">
+    </form>
+    <div class="foot-container">
+        <a href="/report_menu" class="action-button">
+            <span class="action-icon">←</span> Back
+        </a>
+    </div>
+</body>
+</html>

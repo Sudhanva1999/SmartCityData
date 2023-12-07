@@ -34,8 +34,8 @@
                     <td>{{ camera.power_source }}</td>
                     <td>{{ camera.city_name }}</td>
                     <td>
-                        <a href="{{ url_for('editCamera', serial_number = camera.serial_number) }}">Edit</a>
-                        <a href="{{ url_for('deleteCamera', serial_number = camera.serial_number) }}">Delete</a>
+                        <a href="{{ url_for('admin_routes.editCamera', serial_number = camera.serial_number) }}">Edit</a>
+                        <a href="{{ url_for('admin_routes.deleteCamera', serial_number = camera.serial_number) }}">Delete</a>
                     </td>
                 </tr>
             {% endfor %}

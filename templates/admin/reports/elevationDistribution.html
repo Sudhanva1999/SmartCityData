@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elevation Distribution</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='reportStyle.css') }}">
+      
+</head>
+<body>
+    <div id="container">
+        <!-- Display the Matplotlib chart image -->
+        <img src="data:image/png;base64,{{ chart_image }}" alt="Elevation Chart">
+    </div>
+    <div class="foot-container">
+        <a href="/report_menu" class="action-button">
+            <span class="action-icon">←</span> Back
+        </a>
+    </div>
+</body>
+</html>
